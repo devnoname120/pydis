@@ -1,9 +1,9 @@
 # pydis
 **pydis** is an experiment to disprove some of the falsehoods about performance
-and optimisation regarding software and interpreted languages in particular.
+and optimisation regarding software and interpreted languages in particular, **as long as the heavy work is done by calling native non-Python code**.
 
 Below you will find a [Redis](https://github.com/antirez/redis/) clone,
-**pydis**, written *in ~250 lines of idiomatic Python code*, providing a
+**pydis**, written *in ~250 lines of idiomatic Python code* where the **parsing and threading are offloaded to native C code** for performance reasons. It provides a
 subset of redis' functionality for which there are
 [official benchmarks](https://redis.io/topics/benchmarks).
 
@@ -23,7 +23,7 @@ I have used the following libraries written in C for performance:
                                                     >
 - [hiredis](https://pypi.org/project/hiredis/)
 
-  > Python extension that wraps protocol parsing code in hiredis.
+  > Python wrapper that calls hiredis which is written and C and performs all the parsing.
 
 ## Discussion
 - Hacker News
